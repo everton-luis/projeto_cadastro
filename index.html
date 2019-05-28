@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Projeto Cadastro</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="js/jquery-1.11.1.js"></script>
+        <script src="js/jquery.validate.js"></script>
+        <script src="js/jquery.validate.cpf.js"></script>
+        <script src="js/jquery.mask.min.js"></script>
+
+        <script type="text/javascript">
+ 
+            $(document).ready(function(){
+                $("#formulario_cadastro").validate({
+                    rules:{
+                        nome_completo:{
+                            required: true,
+                            minlength: 5
+                        },
+                        email:{
+                            required: true,
+                            email: true
+                        },
+                        estadoCivil:{
+                            required: true
+                        },
+                        dataNascimento:{
+                            required: true
+                        },
+                        cpf:{
+                            required: true
+                        },
+                        cep:{
+                            required: true
+                        },
+                        endereco_rua:{
+                            required: true
+                        },
+                        estado:{
+                            required: true
+                        },
+                        inputCidade:{
+                            required: true
+                        },
+                        telefone_celular:{
+                            required: true
+                        },
+                        senha1:{
+                            required: true,
+                            rangelength: [4,10]
+                        },
+                        senha2:{
+                            required: true,
+                            equalTo: "#senha1"
+                        },
+                        termo_condicoes:{
+                            required: true
+                        }
+                            
+                    },
+                    messages:{
+                        nome_completo:{
+                            required: "este campo é obrigatorio",
+                            minlength: "o nome deve ter no mínimo 5 caracteres"
+                        },
+                        email:{
+                            required: "este campo é obrigatorio",
+                            email: "informe um email válido"
+                        },
+                        estadoCivil:{
+                            required: "este campo é obrigatorio"
+                        },
+                        dataNascimento:{
+                            required: "este campo é obrigatorio"
+                        },
+                        cpf:{
+                            required: "este campo é obrigatorio"
+                        },
+                        cep:{
+                            required: "este campo é obrigatorio"
+                        },
+                        endereco_rua:{
+                            required: "este campo é obrigatorio"
+                        },
+                        estado:{
+                            required: "este campo é obrigatorio"
+                        },
+                        inputCidade:{
+                            required: "este campo é obrigatorio"
+                        },
+                        telefone_celular:{
+                            required: "este campo é obrigatorio"
+                        },
+                        senha1:{
+                            required: "este campo é obrigatorio",
+                            rangelength: "senha deve ter de 4 a 10 caracteres"
+                        },
+                        senha2:{
+                            required: "este campo é obrigatorio",
+                            equalTo: "reescrever a senha corretamente"
+                        },
+                        termo_condicoes:{
+                            required: "este campo é obrigatorio"
+                        }
+                    }
+                })
+
+
+            })
+
+            $(document).ready(function(){
+                $("#cpf").mask("000.000.000-00")
+                $("#cep").mask("00.000-000")
+                $("#telefone_residencial").mask("(00) 0000-0000")
+                $("#telefone_celular").mask("(00) 0000-0000")
+            })
+
+            
+
+        </script>
+        
+
+        <style type="text/css">
+
+            label.error{
+                color: red;
+            }
+
+            .asteristicos{
+                color: red;
+            }
+        
+        </style>
+
+    </head>
+
+    <body>
+        <h1>Cadastro Formulário</h1>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <br/>
+                        <form id="formulario_cadastro" action="" method="POST">
+                            <h2>Informações Pessoais</h2><br/>
+
+                                <div class="form-group row">
+                                  <label for="nome_completo" class="col-sm-1 col-form-label">Nome Completo<span class="asteristicos">&#42</span></label>
+                                  <div class="col-sm-7">
+                                    <input type="text" class="form-control" id="nome_completo" name="nome_completo" placeholder="José da Silva">
+                                  </div>
+                                </div>
+
+                                <div class="form-group row">
+                                  <label for="email" class="col-sm-1 col-form-label">Email<span class="asteristicos">&#42</span></label>
+                                  <div class="col-sm-7">
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="exemplo@gmail.com">
+                                  </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="estadoCivil" class="col-sm-1 col-form-label">Estado Civil<span class="asteristicos">&#42</span></label>
+                                    <div class="col-sm-7">
+                                        <select class="form-control" id="estadoCivil" name="estadoCivil">
+                                            <option value="">Selecionar</option>
+                                            <option value="solteiro">Solteiro</option>
+                                            <option value="casado">Casado</option>
+                                            <option value="divorciado">Divorciado</option>
+                                            <option value="uniao_estavel">União Estavel</option>
+                                            <option value="viuvo">Viúvo</option>
+                                            <option value="separacao_judicial">Separação Judicial</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="dataNascimento" class="col-sm-1 col-form-label">Data Nascimento<span class="asteristicos">&#42</span></label>
+                                    <div class="col-sm-7">
+                                        <input type="date" id="dataNascimento" name="dataNascimento">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="cpf" class="col-sm-1 col-form-label">CPF<span class="asteristicos">&#42</span></label>
+                                        <div class="col-sm-7">
+                                          <input type="text" class="form-control" id="cpf" name="cpf" placeholder="353.080.710-98">
+                                        </div>
+                                </div>
+
+                                <br/>
+                                <h2>Endereço</h2>
+
+                                <br/>
+
+                                <div class="form-group row">
+                                    <label for="cep" class="col-sm-1 col-form-label">CEP<span class="asteristicos">&#42</span></label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="cep" name="cep" placeholder="458361-328">
+                                        </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="endereco_rua" class="col-sm-1 col-form-label">Endereço<span class="asteristicos">&#42</span></label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="endereco_rua" name="endereco_rua" placeholder="Rua São Sebastião">
+                                        </div>
+                                </div>
+
+                                <div class="form-group row">
+                                        
+                                        <div class="form-group row col-md-4">
+                                            <label for="inputEstado" class="col-sm-2 col-form-label">Estado<span class="asteristicos">&#42</span></label>
+                                            <div class="col-sm-5">
+                                                <select id="inputEstado" class="form-control" name="estado">
+                                                <option value="" selected>Escolher</option>
+                                                <option value="santa_catarina">Santa Catarina</option>
+                                                <option value="rio_grande_do_sul">Rio Grande do Sul</option>
+                                                <option value="parana">Paraná</option>
+                                                <option value="sao_paulo">São Paulo</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row col-md-6">
+                                            <label for="inputCity" class="col-sm-1 col-form-label">Cidade<span class="asteristicos">&#42</span></label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="inputCidade" name="inputCidade" placeholder="Joinville">
+                                            </div>
+                                        </div>
+                                </div>
+
+                                <div class="form-group row">
+                                        <label for="complemento" class="col-sm-1 col-form-label">Complemento</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" class="form-control" id="complemento" name="complemento">
+                                            </div>
+                                </div>
+
+                                <br/>
+                                <h2>Telefone</h2>
+                                <br/>
+
+                                <div class="form-group row">
+                                    <label for="telefone_residencial" class="col-sm-1 col-form-label">Telefone Residencial</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="telefone_residencial" name="telefone_residencial" placeholder="(47) 3485-6128">
+                                        </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="telefone_celular" class="col-sm-1 col-form-label">Telefone Celular<span class="asteristicos">&#42</span></label>
+                                        <div class="col-sm-7">
+                                                <input type="text" class="form-control" id="telefone_celular" name="telefone_celular" placeholder="(47) 9954-9785">
+                                        </div>
+                                </div>
+
+                                <br/>
+
+                                <h2>Senha</h2>
+                                <br/>
+
+                                <div class="form-group row">
+                                    <label for="senha1" class="col-sm-1 col-form-label">Senha<span class="asteristicos">&#42</span></label>
+                                        <div class="col-sm-7">
+                                            <input type="password" class="form-control" id="senha1" name="senha1">
+                                        </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="senha2" class="col-sm-1 col-form-label">Repita Senha<span class="asteristicos">&#42</span></label>
+                                        <div class="col-sm-7">
+                                            <input type="password" class="form-control" id="senha2" name="senha2">
+                                        </div>
+                                </div>
+
+                                <br/><br/>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-2">Aceito termo de condições<span class="asteristicos">&#42</span></div>
+                                        <div class="col-sm-10">
+                                          <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="termo_condicoes" name="termo_condicoes">
+                                            <label class="form-check-label" for="termo_condicoes">
+                                            
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br/><br/>
+
+                                <input class="btn btn-primary" type="submit" value="Cadastrar">
+
+
+
+                        </form>
+                </div>
+            </div>
+        </div>
+
+    
+
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/jquery.validate.cpf.js"></script>
+    <script src="js/jquery.mask.min.js"></script>
+    
+    <script type="text/javascript" src="js/validar_formulario.js"></script>
+
+    </body>
+
+</html>
